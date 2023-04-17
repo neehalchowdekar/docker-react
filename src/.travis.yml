@@ -1,0 +1,9 @@
+sudo: terminal
+services: 
+  - docker 
+
+before_install:
+  - docker build -t neehal/docker-react -f Dockerfile.dev
+
+script:
+  - docker run -e CI=true neehal/docket-react npm run test -- --coverage
